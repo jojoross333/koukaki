@@ -4,3 +4,9 @@
 # Ne pas ignorer admin si tu souhaites le garder sous suivi
 !/admin/
 
+# Ignorer les fichiers de log
+logs/
+
+# Ignorer les fichiers de configuration si nécessaire
+conf/
+
