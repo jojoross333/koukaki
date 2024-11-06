@@ -14,3 +14,10 @@ if ( get_stylesheet() !== get_template() ) {
         return get_option( 'theme_mods_' . get_template(), $default );
     } );
 }
+
+function theme_enfant_enqueue_scripts() {
+    wp_enqueue_script('theme-enfant-scripts', get_stylesheet_directory_uri() . '/scripts.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'theme_enfant_enqueue_scripts');
+
+wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'));

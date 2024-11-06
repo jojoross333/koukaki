@@ -1,0 +1,6 @@
+# Ignorer tous les fichiers et dossiers/*
+# Ne pas ignorer wp-content
+!/wp-content/
+# Ne pas ignorer admin si tu souhaites le garder sous suivi
+!/admin/
+
