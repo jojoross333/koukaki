@@ -10,3 +10,6 @@ logs/
 # Ignorer les fichiers de configuration si nécessaire
 conf/
 
+.gitignore.save
+app/sql/
+
