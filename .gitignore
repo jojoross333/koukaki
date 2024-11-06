@@ -13,3 +13,9 @@ conf/
 .gitignore.save
 app/sql/
 
+# Ignorer les fichiers de log
+logs/
+
+# Ignorer les fichiers de configuration
+conf/
+
