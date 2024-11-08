@@ -1,8 +1,49 @@
-.fade-in {
-    opacity: 0; /* Invisible par défaut */
-    transition: opacity 0.5s ease-in-out; /* Transition douce */
+// effet du fade in dans la section 1 du titre 
+.banner {
+    opacity: 0; /* Commence complètement transparent */
+    transform: translateY(-220px); /* Déplacement vers le haut */
+    transition: opacity 2s ease, transform 2s ease; /* Animation de l'opacité et de la position */
 }
 
-.fade-in.visible {
-    opacity: 1; /* Visible quand la classe 'visible' est ajoutée */
+.banner.visible {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Revenir à la position d'origine */
+}
+
+.logo {
+    opacity: 0; /* Commence complètement transparent */
+    transform: translateY(340px); /* Déplacement vers le bas */
+    transition: opacity 2s ease, transform 2s ease; /* Animation de l'opacité et du déplacement */
+}
+
+.logo.visible {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Rétablir à la position originale */
+}
+
+.site-main {
+    opacity: 0; /* Commence complètement transparent */
+    transform: translateY(340px); /* Déplacement vers le bas */
+    transition: opacity 2s ease, transform 2s ease; /* Animation de l'opacité et du déplacement */
+}
+
+.site-main.visible {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Revenir à la position d'origine */
+}
+
+/* Rotation des fleurs */
+
+/* Effet de rotation des fleurs */
+.story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .site-footer::before, .site-footer::after, .site-footer ul::after, .nomination::before, .nomination::after {
+    animation: rotation 10s infinite linear;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

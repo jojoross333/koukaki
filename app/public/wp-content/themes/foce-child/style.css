@@ -1,24 +1,48 @@
-/*!
-Theme Name: Fleurs d'oranger & Chats errants enfant
-Template: foce
-Theme URI: http://underscores.me/
-Author: MyCustomWP
-Author URI: http://underscores.me/
-Description: Thème du film d'animation Fleurs d'orangers et charts errants du studio Koukaki
-Version: 1.0.0
-Tested up to: 5.4
-Requires PHP: 5.6
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: foce
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+@charset "UTF-8";
+.banner {
+  opacity: 0; /* Commence complètement transparent */
+  transform: translateY(-220px); /* Déplacement vers le haut */
+  transition: opacity 2s ease, transform 2s ease; /* Animation de l'opacité et de la position */
+}
 
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned.
+.banner.visible {
+  opacity: 1; /* Rendre visible */
+  transform: translateY(0); /* Revenir à la position d'origine */
+}
 
-Fleurs d'oranger & Chats errants is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
+.logo {
+  opacity: 0; /* Commence complètement transparent */
+  transform: translateY(340px); /* Déplacement vers le bas */
+  transition: opacity 2s ease, transform 2s ease; /* Animation de l'opacité et du déplacement */
+}
 
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
+.logo.visible {
+  opacity: 1; /* Rendre visible */
+  transform: translateY(0); /* Rétablir à la position originale */
+}
+
+.site-main {
+  opacity: 0; /* Commence complètement transparent */
+  transform: translateY(340px); /* Déplacement vers le bas */
+  transition: opacity 2s ease, transform 2s ease; /* Animation de l'opacité et du déplacement */
+}
+
+.site-main.visible {
+  opacity: 1; /* Rendre visible */
+  transform: translateY(0); /* Revenir à la position d'origine */
+}
+
+/* Rotation des fleurs */
+/* Effet de rotation des fleurs */
+.story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .site-footer::before, .site-footer::after, .site-footer ul::after, .nomination::before, .nomination::after {
+  animation: rotation 10s infinite linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}/*# sourceMappingURL=style.css.map */
