@@ -43,3 +43,23 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.appear').forEach(element => {
     observer.observe(element); // Observe chaque élément avec la classe 'appear'
 });
+
+// Carrousel Swiper
+var swiper = new Swiper(".mySwiper", {
+    effect: "coverflow",
+    spaceBetween: 30,
+    grabCursor: true,
+    slidesPerView: 3,
+    loop: true,  // Permet de boucler le carrousel à l'infini
+    autoplay: {
+        delay: 1000,  // Délai en millisecondes (ici 2000 ms = 2 secondes)
+        disableOnInteraction: false, // Permet à l'auto-play de continuer même après interaction de l'utilisateur
+    },
+    coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: false,
+    },
+});

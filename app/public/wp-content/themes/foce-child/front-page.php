@@ -4,50 +4,22 @@ get_header();
 ?>
 
     <main id="primary" class="site-main">
-        <section class="banner fade-in-top">
-            <img class="logo fade-in" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+        <section class="banner fade-in-top" style="position:relative; width:100%; height:100%; overflow:hidden;">
+            <img class="background-image" src="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>" alt="image fallback">
+            <video class="background-video" autoplay loop muted>
+                <source src="<?php echo get_stylesheet_directory_uri();?>/image/background-video.mp4">
+            </video>
+            <img class="logo fade-in" data-0="top:30%;" data-100="top:45%;" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+                
         </section>
         <section id="#story" class="story fade-in">
             <h2><span class="appear">L'histoire</span></h2>
             <article id="" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
-            <?php
-            $args = array(
-                'post_type' => 'characters',
-                'posts_per_page' => -1,
-                'meta_key'  => '_main_char_field',
-                'orderby'   => 'meta_value_num',
-
-            );
-            $characters_query = new WP_Query($args);
-            ?>
-            <article id="characters">
-                <div class="main-character">
-                    <h3>Les personnages</h3>
-                    <?php
-                    $main_character = $characters_query->posts[0];
-                    echo '<figure>';
-                    echo get_the_post_thumbnail( $main_character->ID, 'full' );
-                    echo '<figcaption>'. $main_character->post_title . '</figcaption>';
-                    echo '</figure>';
-                    $characters_query->next_post();
-                    ?>
-                </div>
-                <div class="other-characters">
-                    <?php
-                    while ( $characters_query->have_posts() ) {
-                        $characters_query->the_post();
-                        echo '<figure>';
-                        echo get_the_post_thumbnail( get_the_ID(), 'full' );
-                        echo '<figcaption>';
-                        the_title();
-                        echo'</figcaption>';
-                        echo '</figure>';
-                    }
-                    ?>
-                </div>
-            </article>
+            <!-- Carrousel Swiper -->
+            <?php get_template_part('/template-parts/swiper'); ?>
+            <!-- Fin carrousel -->
             <article id="place">
                 <div>
                     <h3 class="appear">Le Lieu</h3>
@@ -71,6 +43,12 @@ get_header();
         <!-- Fin section des nominations -->
 
     </main><!-- #main -->
+
+    <script>
+       // Initialize Skrollr
+       var s = skrollr.init();
+       console.log("Skrollr initialized successfully!");
+    </script>
 
 <?php
 get_footer();

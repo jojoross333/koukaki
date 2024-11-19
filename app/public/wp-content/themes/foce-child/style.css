@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ETAPE 1 */
-/* Effet de rotation des fleurs */
+/* ROTATION DES FLEURS */
 .story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .site-footer::before, .site-footer::after, .site-footer ul::after, .nomination::before, .nomination::after {
   animation: rotation 10s infinite linear;
 }
@@ -13,7 +13,7 @@
     transform: rotate(360deg);
   }
 }
-/* Section des nominations */
+/* SECTION NOMINATION */
 .nomination {
   position: relative;
   padding: 150px 0 50px;
@@ -23,11 +23,11 @@
   align-items: center;
 }
 
-/* Effet de fade-in pour les sections */
+/* EFFET FADE-IN DES SECTIONS ASSOCIER JS */
 .fade-in {
   opacity: 0; /* Commence complètement transparent */
   transform: translateY(100px); /* Déplacement vers le bas */
-  transition: opacity 2s ease, transform 2s ease; /* Transition pour opacité et déplacement */
+  transition: opacity 1.5s ease, transform 1.5s ease; /* Transition pour opacité et déplacement */
 }
 
 /* Quand l'élément devient visible */
@@ -36,11 +36,11 @@
   transform: translateY(0); /* Remet l'élément à sa position d'origine */
 }
 
-/* banner image video head */
+/* fade-in inversé pour le banner*/
 .fade-in-top {
   opacity: 0;
-  transform: translateY(-50px);
-  transition: opacity 2s ease, transform 2s ease;
+  transform: translateY(-100px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
 .fade-in-top.visible {
@@ -48,7 +48,7 @@
   transform: translateY(0);
 }
 
-/* Effet d'apparition des titres */
+/* APPARITION DES TITRES ASSOCIER JS */
 .appear {
   opacity: 0;
   transform: translateY(70px);
@@ -68,4 +68,81 @@ span.appear {
   transform: translateY(0);
 }
 
-/* ETAPE 2 *//*# sourceMappingURL=style.css.map */
+/* ETAPE 2 */
+/* ajout de la video , image fixe, flottement du logo */
+.banner {
+  position: relative;
+  -o-object-fit: contain;
+     object-fit: contain;
+  background-image: none;
+  z-index: 1;
+}
+
+.background-image, .logo {
+  position: absolute;
+}
+
+.background-video {
+  z-index: 1;
+}
+@media (max-width: 700px) {
+  .background-video {
+    display: none;
+  }
+}
+
+@counter-style fallback-video {
+  fallback: url("/image/banner.png");
+}
+.logo {
+  z-index: 2;
+  animation: float 2s ease-in-out infinite;
+  transition: transform 0.1s ease;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 10px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+@media screen and (max-width: 700px) {
+  .banner {
+    min-height: 500px;
+  }
+  .background-image {
+    width: 100% !important;
+    top: 70px;
+  }
+  .main-navigation {
+    height: 80px;
+  }
+}
+/* ETAPE 3 */
+/* Pour swiper */
+.mySwiper {
+  width: 75vw;
+  display: flex;
+  justify-content: left;
+}
+
+.swiper-slide img {
+  opacity: 0;
+  transition-duration: 500ms;
+  transform: translate3d(0px, 0px, -105px) rotateX(0deg) rotateY(0deg) scale(1);
+}
+
+.swiper-slide-visible img {
+  opacity: 1;
+}
+
+.mySwiper h3 {
+  padding: 1.5em 2em;
+  background-position: left;
+  text-align: left;
+}/*# sourceMappingURL=style.css.map */
