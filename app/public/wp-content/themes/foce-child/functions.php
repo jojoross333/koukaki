@@ -27,4 +27,13 @@ wp_enqueue_script('skrollr-script', 'https://cdnjs.cloudflare.com/ajax/libs/skro
 //Chargement Swiper
 wp_enqueue_script('swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '1.0', time(), true);
 wp_enqueue_style('swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
+// chargement parralax.js 
+wp_enqueue_script('parallax-script', get_stylesheet_directory_uri() . '/js/parallax.js', [], false, true );
+
+// Charger jQuery
+wp_enqueue_script('jquery');
+
+// Charger le script personnalisé 
+wp_enqueue_script('burger-menu-script', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
+
 

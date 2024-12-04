@@ -1,6 +1,6 @@
 <article id="characters" class="fade-in">
     <div class="main-character">
-        <h3><span class="appear">Les personnages</span></h3>
+        <h3>Les personnages</h3>
         <?php
             $args = array(
                 'post_type' => 'characters',

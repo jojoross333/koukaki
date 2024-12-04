@@ -5,11 +5,11 @@ get_header();
 
     <main id="primary" class="site-main">
         <section class="banner fade-in-top" style="position:relative; width:100%; height:100%; overflow:hidden;">
-            <img class="background-image" src="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?>" alt="image fallback">
+            <img class="background-image" src="<?php echo get_stylesheet_directory_uri() . '/image/banner.png'; ?>" alt="image fallback">
             <video class="background-video" autoplay loop muted>
                 <source src="<?php echo get_stylesheet_directory_uri();?>/image/background-video.mp4">
             </video>
-            <img class="logo fade-in" data-0="top:30%;" data-100="top:45%;" src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+            <img class="logo fade-in" data-0="top:25%;" data-100="top:39%;" src="<?php echo get_stylesheet_directory_uri() . '/image/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
                 
         </section>
         <section id="#story" class="story fade-in">
@@ -22,10 +22,11 @@ get_header();
             <!-- Fin carrousel -->
             <article id="place">
                 <div>
-                    <h3 class="appear">Le Lieu</h3>
+                    <h3>Le Lieu</h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
+                    <img class="big_cloud" src="<?php echo get_theme_file_uri() . '/image/big_cloud.png'; ?>" alt="grand nuage">
+                    <img class="little_cloud" src="<?php echo get_theme_file_uri() . '/image/little_cloud.png'; ?>" alt="petit nuage">
                 </div>
-
             </article>
         </section>
 
