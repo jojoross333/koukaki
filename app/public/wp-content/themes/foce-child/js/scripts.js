@@ -79,25 +79,17 @@ var swiper = new Swiper(".mySwiper", {
   });    
 })(jQuery);
 
-// Parallax Nuages 
-window.addEventListener('scroll', function () {
+// Parallaxe nuages
+const placeSection = document.getElementById("place");
+const bigCloud = placeSection.querySelector(".big_cloud");
+const littleCloud = placeSection.querySelector(".little_cloud");
 
-    const bigCloud = document.querySelector('.big_cloud');
-    const littleCloud = document.querySelector('.little_cloud');
-    const placeSection = document.querySelector('#place');
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+  const maxXOffset = 300; // Réglage de la valeur maximale de déplacement horizontal
 
-    //distance entre haut de l'élément et haut de  page.
-    const sectionOffsetTop = placeSection.offsetTop;
-    //position actuelle defilement - Nav récent || nav ancien
-    const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+  const posX = maxXOffset - scroll / 5; // Division pour ajuster la vitesse du défilement
 
-    if (scrollPosition >= sectionOffsetTop) {
-        // le diviseur ajuste la vitesse : inversément proportionnel
-        const parallaxValue = (scrollPosition - sectionOffsetTop) / 5
-        //renvoie le plus petit nombre des 2  *** 300px limite énoncé
-        const translationX = Math.min(parallaxValue, 300);
-
-        bigCloud.style.transform = 'translateX(' + (-translationX) + 'px) translateY(' +(parallaxValue/8) +'px) '; 
-        littleCloud.style.transform =  'translateX(' + (-translationX) + 'px)'; 
-    } 
+  bigCloud.style.transform = `translateX(${posX}px)`;
+  littleCloud.style.transform = `translateX(${posX}px)`;
 });

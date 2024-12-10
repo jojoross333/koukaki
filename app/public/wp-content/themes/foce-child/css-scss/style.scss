@@ -148,38 +148,24 @@ span.appear {
 }
 
 /* ETAPE 4 , parralax nuage */
-
 #place {
-    #place {
-        background-image: url('../assets/images/Studio_Koukaki-image_place.png') !important;
-        margin-top: -50px;
-    }
-    
+    background-image: url('../assets/images/Studio_Koukaki-image_place.png') !important;
+    margin-top: -50px;
     & div {
         margin-top: 170px;
     }
-
     & .big_cloud {
         position: relative;
         left: 950px;        
         bottom:420px;
-        filter: blur(10px); /* effet de flou */
+        filter: blur(10px);
         z-index: 1;
     }
-
     & .little_cloud {
         position: relative;
         left: 730px;      
         bottom:360px;
-        filter: blur(10px);
-    }
-
-    /* Media query pour cacher les nuages sur les écrans de moins de 768px (mobiles) */
-    @media (max-width: 768px) {
-        .big_cloud,
-        .little_cloud {
-            display: none; /* Cache les nuages sur mobile */
-        }
+        filter: blur(12px);
     }
 }
 
