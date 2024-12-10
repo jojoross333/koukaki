@@ -38,7 +38,7 @@
                 </button>
 
                 <div class="burger-content">
-                    <img class="burger-logo" src="<?php echo get_stylesheet_directory_uri() . '/image/logo.png'; ?>" alt="image logo">
+                    <img class="burger-logo" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/logo.png'; ?>" alt="image logo">
                     <ul>
                         <li><a href="#story">Histoire</a></li>
                         <li class="burger-characters"><a href="#characters">Personnages</a></li>
@@ -47,14 +47,14 @@
                     </ul>
 
                     <div>
-                        <img class="hibiscus" src="<?php echo get_stylesheet_directory_uri() . '/image/hibiscus.png'; ?>" alt="">
-                        <img class="orchid" src="<?php echo get_stylesheet_directory_uri() . '/image/orchid.png'; ?>" alt="">
-                        <img class="random-flower" src="<?php echo get_stylesheet_directory_uri() . '/image/random-flower.png'; ?>" alt="">
-                        <img class="flower" src="<?php echo get_stylesheet_directory_uri() . '/image/flower.png'; ?>" alt="">
-                        <img class="sunflower" src="<?php echo get_stylesheet_directory_uri() . '/image/sunflower.png'; ?>" alt="">
-                        <img class="black-cat" src="<?php echo get_stylesheet_directory_uri() . '/image/black-cat.png'; ?>" alt="">
-                        <img class="purple-cat" src="<?php echo get_stylesheet_directory_uri() . '/image/purple-cat.png'; ?>" alt="">
-                        <img class="yellow-cat" src="<?php echo get_stylesheet_directory_uri() . '/image/yellow-cat.png'; ?>" alt="">
+                        <img class="hibiscus" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/hibiscus.png'; ?>" alt="image hibiscus">
+                        <img class="orchid" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/orchid.png'; ?>" alt="image orchid">
+                        <img class="random-flower" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/random-flower.png'; ?>" alt="image random fleur">
+                        <img class="flower" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/flower.png'; ?>" alt="image fleur">
+                        <img class="sunflower" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/sunflower.png'; ?>" alt="image soleil fleur">
+                        <img class="black-cat" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/black-cat.png'; ?>" alt="chat noir">
+                        <img class="purple-cat" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/purple-cat.png'; ?>" alt="chat violet">
+                        <img class="yellow-cat" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/yellow-cat.png'; ?>" alt="chat jaune">
                     </div>
 
                     <div class="burger-footer">

@@ -1,10 +1,11 @@
 <?php
+// Charger le style du thème parent
 add_action( 'wp_enqueue_scripts', 'theme_enqueue_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
 }
 
-// Get customizer options form parent theme
+// Pour éviter d'écraser les options de personnalisation du thème parent, utiliser le filtre.
 if ( get_stylesheet() !== get_template() ) {
     add_filter( 'pre_update_option_theme_mods_' . get_stylesheet(), function ( $value, $old_value ) {
         update_option( 'theme_mods_' . get_template(), $value );
@@ -15,25 +16,33 @@ if ( get_stylesheet() !== get_template() ) {
     } );
 }
 
+// Enqueue les styles et scripts du thème enfant
 function theme_enfant_enqueue_scripts() {
-    wp_enqueue_script('theme-enfant-scripts', get_stylesheet_directory_uri() . '/scripts.js', array(), null, true);
+    // Charger le style du thème enfant
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/css-scss/style.css', array('parent-style'));
+
+    // Charger jQuery (important pour les scripts qui en dépendent)
+    wp_enqueue_script('jquery');
+
+    // Charger Swiper à partir du CDN (assurez-vous de charger Swiper après jQuery)
+    wp_enqueue_script('swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array('jquery'), null, true);
+    wp_enqueue_style('swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css');
+
+    // Chargement de Skrollr
+    wp_enqueue_script('skrollr-script', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js', array(), time());
+
+    // Charger les scripts personnalisés après Swiper et jQuery
+    wp_enqueue_script('theme-enfant-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('swiper-script', 'jquery'), null, true);
+
+    // Charger le script du menu burger
+    wp_enqueue_script('burger-menu-script', get_stylesheet_directory_uri() . '/js/burger-menu.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'theme_enfant_enqueue_scripts');
-// chargement thème enfant 
-wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style'));
-// chargement skroll
-wp_enqueue_script('skrollr-script', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js', array(), time());
 
-//Chargement Swiper
-wp_enqueue_script('swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), '1.0', time(), true);
-wp_enqueue_style('swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-// chargement parralax.js 
-wp_enqueue_script('parallax-script', get_stylesheet_directory_uri() . '/js/parallax.js', [], false, true );
 
-// Charger jQuery
-wp_enqueue_script('jquery');
 
-// Charger le script personnalisé 
-wp_enqueue_script('burger-menu-script', get_stylesheet_directory_uri() . '/js/scripts.js', array('jquery'), null, true);
+
+
+
 
 
