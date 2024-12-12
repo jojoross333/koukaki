@@ -40,7 +40,7 @@ get_header();
         </section>
 
         <!-- Section des nominations -->
-        <?php get_template_part('/template-parts/oscars'); ?>
+        <?php get_template_part('/template-parts/oscars');?>
         <!-- Fin section des nominations -->
 
     </main><!-- #main -->

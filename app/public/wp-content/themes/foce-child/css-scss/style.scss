@@ -17,11 +17,40 @@
 /* SECTION NOMINATION */
 .nomination {
     position: relative;
-    padding: 150px 0 50px;
+    padding: 250px 0 50px;
     display: flex;
     gap: 40px 0;
     justify-content: center;
     align-items: center;
+}
+
+.nomination::before {
+    content: url("../assets/images/Sunflower.png");
+    position: absolute;
+    left: 5.5em;
+    top: 3em;
+}
+
+.nomination::after {
+    content: url("../assets/images/orchid.png");
+    position: absolute;
+    right: -4em;
+    top: 3em;
+}
+
+.site-footer {
+    &::before,
+    &::after {
+        display: none;
+    }
+}
+
+/* Masquer les images de fleurs sur les écrans mobiles */
+@media (max-width: 768px) {
+  .nomination::before,
+  .nomination::after {
+    display: none;
+  }
 }
 
 /* EFFET FADE-IN DES SECTIONS ASSOCIER JS */
@@ -41,7 +70,7 @@
 /* fade-in inversé pour le banner*/
 .fade-in-top { 
     opacity: 0;
-    transform: translateY(-100px); 
+    transform: translateY(-200px); 
     transition: opacity 1.5s ease, transform 1.5s ease;
 }
 
@@ -140,34 +169,52 @@ span.appear {
 .swiper-slide img {
     opacity: 0;
     transition-duration: 500ms;
-    transform: translate3d(0px, 0px, -105px) rotateX(0deg) rotateY(0deg) scale(1); 
+    transform: translate3d(0px, 0px, -105px) rotateX(0deg) rotateY(0deg) scale(1.1); 
 }
 
 .swiper-slide-visible img {
     opacity: 1;
 }
 
+.story #characters h3 {
+    padding: 1.5em 2em;
+    background-position: left;
+    text-align: left;
+}
 /* ETAPE 4 , parralax nuage */
+
 #place {
     background-image: url('../assets/images/Studio_Koukaki-image_place.png') !important;
     margin-top: -50px;
-    & div {
+
+    div {
         margin-top: 170px;
     }
-    & .big_cloud {
+
+    .big_cloud {
         position: relative;
         left: 950px;        
-        bottom:420px;
-        filter: blur(10px);
+        bottom: 420px;
+        filter: blur(10px); /* effet de flou */
         z-index: 1;
     }
-    & .little_cloud {
+
+    .little_cloud {
         position: relative;
         left: 730px;      
-        bottom:360px;
-        filter: blur(12px);
+        bottom: 360px;
+        filter: blur(10px);
+    }
+
+    /* Media query pour cacher les nuages sur les écrans de moins de 768px (mobiles) */
+    @media (max-width: 768px) {
+        .big_cloud,
+        .little_cloud {
+            display: none; /* Cache les nuages sur mobile */
+        }
     }
 }
+
 
 /********** ETAPE 5 **********/
 .main-navigation.toggled ul {
@@ -283,7 +330,7 @@ span.appear {
 
 .orchid {
     position: absolute;
-    top: 6em;
+    top: 9em;
     left: -4.5em;
     animation: rotation 10s infinite linear;
     width: 172px;
@@ -297,7 +344,7 @@ span.appear {
     position: absolute;
     width: 75px;
     height: 75px;
-    top: 28em;
+    top: 18em;
     right: -2.25em;
     animation: rotation 10s infinite linear;
     @media (max-width: 700px) {

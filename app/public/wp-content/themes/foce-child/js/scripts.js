@@ -46,29 +46,30 @@ document.querySelectorAll('.appear').forEach(element => {
 
 // Carrousel Swiper
 var swiper = new Swiper(".mySwiper", {
-    effect: "coverflow",
-    spaceBetween: 40,
-    grabCursor: true,
-    slidesPerView: 3,
-    loop: true,  // Permet de boucler le carrousel à l'infini
-    autoplay: {
-        delay: 2000,  // Délai en millisecondes (ici 2000 ms = 2 secondes)
-        disableOnInteraction: false, // Permet à l'auto-play de continuer même après interaction de l'utilisateur
+    slidesPerView : 3,
+    spaceBetween : 20,
+    loop: true,
+    autoplay: {  
+        delay: 2000,
     },
+    grabCursor: true,
+    centeredSlides: true,
+    effect: 'coverflow',
     coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
+        depth: 100,  
+        rotate: 60,
         slideShadows: false,
     },
 });
+
+
+
 
 // Ouverture et fermeture du menu
 (function($) {
     $(".burger-open").click(function () { /* contient les 3 lignes active ou cache le menu*/
     console.log("burger-trigger cliqué");
-    $(".burger-content").toggleClass("open");
+    $(".burger-content").toggleClass("open");/* active le menu burger */
     $(".burger-icon").toggleClass("close"); /* croix quan le menu ouvert */
   });
   $("a").click(function () {
