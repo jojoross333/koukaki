@@ -33,9 +33,6 @@ function theme_enfant_enqueue_scripts() {
 
     // Charger les scripts personnalisés après Swiper et jQuery
     wp_enqueue_script('theme-enfant-scripts', get_stylesheet_directory_uri() . '/js/scripts.js', array('swiper-script', 'jquery'), null, true);
-
-    // Charger le script du menu burger
-    wp_enqueue_script('burger-menu-script', get_stylesheet_directory_uri() . '/js/burger-menu.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'theme_enfant_enqueue_scripts');
 
