@@ -116,9 +116,6 @@ span.appear {
   }
 }
 
-@counter-style fallback-video {
-  fallback: url("/image/banner.png");
-}
 .logo {
   z-index: 2;
   animation: float 2s ease-in-out infinite;
@@ -149,26 +146,26 @@ span.appear {
 }
 /* ETAPE 3 */
 /* Pour swiper des personnages */
-.mySwiper {
-  width: 100vw;
-  display: flex;
-  justify-content: left;
-}
-
 .swiper-slide img {
   opacity: 0;
   transition-duration: 500ms;
-  transform: translate3d(0px, 0px, -105px) rotateX(0deg) rotateY(0deg) scale(1.1);
+  transform: translate3d(0px, 0px, -85px) rotateX(0deg) rotateY(0deg) scale(1.1);
 }
 
 .swiper-slide-visible img {
   opacity: 1;
 }
 
-.story #characters h3 {
-  padding: 1.5em 2em;
-  background-position: left;
+#characters h3 {
   text-align: left;
+  background-position: left;
+  padding: 1em;
+}
+
+.story #characters {
+  flex-direction: column;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* ETAPE 4 , parralax nuage */
