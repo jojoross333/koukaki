@@ -21,6 +21,7 @@ document.querySelectorAll('.fade-in, .fade-in-top').forEach(element => {
     sectionObserver.observe(element); // Observe chaque section avec la classe fade-in
 });
 
+
 // Apparition des titres au scroll
 const options = {
     root: null, // Utilise le viewport comme zone de défilement
@@ -62,8 +63,20 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
+// Parallaxe nuages
+const placeSection = document.getElementById("place");
+const bigCloud = placeSection.querySelector(".big_cloud");
+const littleCloud = placeSection.querySelector(".little_cloud");
 
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+  const maxXOffset = 300; // Réglage de la valeur maximale de déplacement horizontal
 
+  const posX = maxXOffset - scroll / 5; // Division pour ajuster la vitesse du défilement
+
+  bigCloud.style.transform = `translateX(${posX}px)`;
+  littleCloud.style.transform = `translateX(${posX}px)`;
+});
 
 // Ouverture et fermeture du menu
 (function($) {
@@ -80,17 +93,4 @@ var swiper = new Swiper(".mySwiper", {
   });    
 })(jQuery);
 
-// Parallaxe nuages
-const placeSection = document.getElementById("place");
-const bigCloud = placeSection.querySelector(".big_cloud");
-const littleCloud = placeSection.querySelector(".little_cloud");
 
-window.addEventListener("scroll", () => {
-  const scroll = window.scrollY;
-  const maxXOffset = 300; // Réglage de la valeur maximale de déplacement horizontal
-
-  const posX = maxXOffset - scroll / 5; // Division pour ajuster la vitesse du défilement
-
-  bigCloud.style.transform = `translateX(${posX}px)`;
-  littleCloud.style.transform = `translateX(${posX}px)`;
-});

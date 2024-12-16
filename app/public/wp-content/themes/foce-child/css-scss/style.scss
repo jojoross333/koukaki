@@ -1,5 +1,8 @@
-/* ETAPE 1 */
 
+/* ETAPE 1____________________________________________________________________ */
+main, footer {
+    overflow: hidden; /*permet qu'il y est pas de dépssement de page */
+}
 /* ROTATION DES FLEURS */
 .story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .site-footer::before, .site-footer::after, .site-footer ul::after, .nomination::before, .nomination::after {
     animation: rotation 10s infinite linear;
@@ -12,6 +15,31 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+/* Fade-in pour sections */
+.fade-in {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 1.5s, transform 1.5s;
+}
+
+/* Quand l'élément devient visible */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* fade-in inversé pour le banner */
+.fade-in-top {
+    opacity: 0;
+    transform: translateY(-200px);
+    transition: opacity 1.5s, transform 1.5s;
+}
+
+.fade-in-top.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* SECTION NOMINATION */
@@ -53,65 +81,14 @@
   }
 }
 
-/* EFFET FADE-IN DES SECTIONS ASSOCIER JS */
-
-.fade-in {
-    opacity: 0; /* Commence complètement transparent */
-    transform: translateY(100px); /* Déplacement vers le bas */
-    transition: opacity 1.5s ease, transform 1.5s ease; /* Transition pour opacité et déplacement */
-}
-
-/* Quand l'élément devient visible */
-.fade-in.visible {
-    opacity: 1; /* Deviens visible */
-    transform: translateY(0); /* Remet l'élément à sa position d'origine */
-}
-
-/* fade-in inversé pour le banner*/
-.fade-in-top { 
-    opacity: 0;
-    transform: translateY(-200px); 
-    transition: opacity 1.5s ease, transform 1.5s ease;
-}
-
-.fade-in-top.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* APPARITION DES TITRES ASSOCIER JS */
-.appear {
-    opacity: 0;
-    transform: translateY(70px);
-    transition-duration: 2s;
-}
-
-span.appear {
-    display: block;
-}
-
-#studio h2 {
-    overflow: visible;
-}
-
-.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* ETAPE 2 */
-
-/* ajout de la video , image fixe, flottement du logo */
+/* ETAPE_____________________________________________________________________________2 */
+/* ajout de la video*/
 
 .banner { 
     position: relative; 
     object-fit: contain; 
     background-image: none; 
     z-index: 1; 
-}
-
-.background-image, .logo {
-    position: absolute; 
 }
 
 .background-video {
@@ -122,8 +99,9 @@ span.appear {
 }
 
 .logo {
+    position: absolute;
     z-index: 2; 
-    animation: float 2s ease-in-out infinite;
+    animation: float 2s ease-in-out infinite; 
 }
 
 @keyframes float {
@@ -153,7 +131,72 @@ span.appear {
     }
   }
 
-  /* ETAPE 3 */
+/* Media Query pour les petits écrans */
+@media screen and (max-width: 700px) {
+    .banner {
+        min-height: 500px;
+    }
+    .background-image {
+        width: 100% !important;
+        top: 70px;
+    }
+    .main-navigation {
+        height: 80px;
+    }
+}
+
+/* Media Query pour les petits écrans */
+@media screen and (max-width: 700px) {
+    .banner {
+        min-height: 500px;
+    }
+    .background-image {
+        width: 100% !important;
+        top: 70px;
+    }
+    .main-navigation {
+        height: 80px;
+    }
+}
+
+/*APPARITION TITRE AU SCROLL+DELAY H2 */
+
+.appear {
+    opacity: 0;
+    transform: translateY(70px); /* Déplacement vers le bas */
+    transition-duration: 2s;
+    display: inline-block; /* Les spans restent en ligne mais peuvent être animés */
+    white-space: nowrap; /* Éviter les espacements supplémentaires entre les mots */
+}
+
+.first-word {
+    transition-delay: 0s; /* Pas de délai */
+}
+
+.second-word {
+    transition-delay: 0.5s; 
+}
+
+.visible { /* élément visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Assurer que le texte reste aligné et espace correctement */
+#studio h2 {
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center; /* Centre horizontalement */
+    overflow: visible;
+    gap: 0.2em; /* Espacement léger entre les mots */
+}
+
+#studio h2 span {
+    display: inline-block; /* Les spans restent en ligne */
+    margin-right: 0.1em; /* Espacement léger entre les mots */
+}
+
+/* ETAPE_____________________________________________________________________3 */
 
 /* Pour swiper des personnages */
 
@@ -178,6 +221,7 @@ span.appear {
     max-width: 100%;
     overflow: hidden;
 }
+
 /* ETAPE 4 , parralax nuage */
 
 #place {
@@ -305,7 +349,7 @@ span.appear {
 }
 
 .burger-icon.close .line:first-child {
-    transform: rotate(45deg) translate3d(8px, 6px, 0);
+    transform: rotate(45deg) translate3d(8px, 6px, 0); /* foramtion croix*/
 }
 
 .burger-icon.close .line:last-child {
