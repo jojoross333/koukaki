@@ -6,6 +6,7 @@ get_header();
     <main id="primary" class="site-main">
         <section class="banner fade-in-top" style="position:relative; width:100%; height:100%; overflow:hidden;">
             <img class="logo" data-0="top:30%;" data-1000="top:55%;" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+            <img class="background-image" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/banner.png'; ?>" alt="">
             <video class="background-video" autoplay loop muted>
                 <source src="<?php echo get_stylesheet_directory_uri() . '/assets/images/background-video.mp4'; ?>" poster=<?php echo get_stylesheet_directory_uri() . '/assets/images/banner.png'; ?>  type="video/mp4" >
             </video>

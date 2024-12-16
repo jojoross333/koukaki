@@ -91,6 +91,10 @@ main, footer {
     z-index: 1; 
 }
 
+.background-image, .logo {
+    position: absolute; 
+}
+
 .background-video {
     z-index: 1;
     @media (max-width: 700px) {

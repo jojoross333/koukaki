@@ -25,10 +25,11 @@ function theme_enfant_enqueue_scripts() {
     wp_enqueue_script('jquery');
     
     // Charger Swiper à partir du CDN (assurez-vous de charger Swiper après jQuery)
-    wp_enqueue_script('swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array('jquery'), null, true);
-    wp_enqueue_style('swiper-style', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css');
+    wp_enqueue_script('swiper-script', get_stylesheet_directory_uri() . '/js/swiper-bundle.min.js', array('jquery'), null, true);
+    wp_enqueue_style('swiper-style', get_stylesheet_directory_uri() . '/css-scss/swiper-bundle.min.css');
+
     // Charger Skrollr à partir du CDN
-    wp_enqueue_script('skrollr', 'https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js', array(), null, true);
+    wp_enqueue_script('skrollr', get_stylesheet_directory_uri() . '/js/skrollr.min.js', array(), null, true);
     // Charger le fichier JavaScript personnalisé pour initialiser Skrollr
     wp_enqueue_script('parallax-init', get_stylesheet_directory_uri() . '/js/parallax-init.js', array('skrollr', 'jquery'), null, true);
 
